@@ -4,13 +4,12 @@ import java.util.Date;
 
 public class Board {
 
-	private long		bId;
+	private long		bID;
 	private String		title;
-	private User		writer;
+	private long		writer;
 	private String		contents;
-	private Comment[]	comments;
-	private Date		createdTime;
-	private Date		modifiedTime;
+	private String		comments;
+	private Date		date;
 	
 	/*
 	 * Constructor
@@ -18,26 +17,24 @@ public class Board {
 	public Board() {
 		super();
 	}
-	public Board(long bId, String title, User writer, String contents, Comment[] comments, Date createdTime,
-			Date modifiedTime) {
+	public Board(long bID, String title, long writer, String contents, String comments, Date date) {
 		super();
-		this.bId = bId;
+		this.bID = bID;
 		this.title = title;
 		this.writer = writer;
 		this.contents = contents;
 		this.comments = comments;
-		this.createdTime = createdTime;
-		this.modifiedTime = modifiedTime;
+		this.date = date;
 	}
 	
 	/*
 	 * Getters and Setters
 	 */
-	public long getbId() {
-		return bId;
+	public long getbID() {
+		return bID;
 	}
-	public void setbId(long bId) {
-		this.bId = bId;
+	public void setbID(long bID) {
+		this.bID = bID;
 	}
 	public String getTitle() {
 		return title;
@@ -45,10 +42,10 @@ public class Board {
 	public void setTitle(String title) {
 		this.title = title;
 	}
-	public User getWriter() {
+	public long getWriter() {
 		return writer;
 	}
-	public void setWriter(User writer) {
+	public void setWriter(long writer) {
 		this.writer = writer;
 	}
 	public String getContents() {
@@ -57,23 +54,17 @@ public class Board {
 	public void setContents(String contents) {
 		this.contents = contents;
 	}
-	public Comment[] getComments() {
+	public String getComments() {
 		return comments;
 	}
-	public void setComments(Comment[] comments) {
+	public void setComments(String comments) {
 		this.comments = comments;
 	}
-	public Date getCreatedTime() {
-		return createdTime;
+	public Date getDate() {
+		return date;
 	}
-	public void setCreatedTime(Date createdTime) {
-		this.createdTime = createdTime;
-	}
-	public Date getModifiedTime() {
-		return modifiedTime;
-	}
-	public void setModifiedTime(Date modifiedTime) {
-		this.modifiedTime = modifiedTime;
+	public void setDate(Date date) {
+		this.date = date;
 	}
 	
 	

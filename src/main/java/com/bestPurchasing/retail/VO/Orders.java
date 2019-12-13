@@ -2,7 +2,7 @@ package com.bestPurchasing.retail.VO;
 
 import java.util.Date;
 
-public class Order {
+public class Orders {
 
 	private long		oID;
 	private long		uID;
@@ -13,15 +13,20 @@ public class Order {
 	private String 		province;
 	private String 		postal;
 	private String		note;
+	private String		paidMethod;
+	private String		cardNumber;
+	private double		totalPrice;
+	private boolean		paid;
 	
 	/*
 	 * Constructor
 	 */
-	public Order() {
+	public Orders() {
 		super();
+		// TODO Auto-generated constructor stub
 	}
-	public Order(long oID, long uID, String products, Date date, String address1, String address2, String province,
-			String postal, String note) {
+	public Orders(long oID, long uID, String products, Date date, String address1, String address2, String province,
+			String postal, String note, String paidMethod, String cardNumber, double totalPrice, boolean paid) {
 		super();
 		this.oID = oID;
 		this.uID = uID;
@@ -32,6 +37,10 @@ public class Order {
 		this.province = province;
 		this.postal = postal;
 		this.note = note;
+		this.paidMethod = paidMethod;
+		this.cardNumber = cardNumber;
+		this.totalPrice = totalPrice;
+		this.paid = paid;
 	}
 	
 	/*
@@ -91,6 +100,29 @@ public class Order {
 	public void setNote(String note) {
 		this.note = note;
 	}
-	
-			
+	public String getPaidMethod() {
+		return paidMethod;
+	}
+	public void setPaidMethod(String paidMethod) {
+		this.paidMethod = paidMethod;
+	}
+	public String getCardNumber() {
+		return cardNumber;
+	}
+	public void setCardNumber(String cardNumber) {
+		this.cardNumber = cardNumber;
+	}
+	public double getTotalPrice() {
+		return totalPrice;
+	}
+	public void setTotalPrice(double totalPrice) {
+		this.totalPrice = totalPrice;
+	}
+	public boolean isPaid() {
+		return paid;
+	}
+	public void setPaid(boolean paid) {
+		this.paid = paid;
+	}
+				
 }

@@ -4,12 +4,11 @@ import java.util.Date;
 
 public class Comment {
 
-	private long		cId;
-	private long		bId;
+	private long		cID;
+	private long		bID;
 	private String		contents;
-	private	User		writer;
-	private Date		createdTime;
-	private Date		modifiedTime;
+	private	long		writer;
+	private Date		date;
 	
 	/*
 	 * Constructor
@@ -17,30 +16,29 @@ public class Comment {
 	public Comment() {
 		super();
 	}
-	public Comment(long cId, long bId, String contents, User writer, Date createdTime, Date modifiedTime) {
+	public Comment(long cID, long bID, String contents, long writer, Date date) {
 		super();
-		this.cId = cId;
-		this.bId = bId;
+		this.cID = cID;
+		this.bID = bID;
 		this.contents = contents;
 		this.writer = writer;
-		this.createdTime = createdTime;
-		this.modifiedTime = modifiedTime;
+		this.date = date;
 	}
 	
 	/*
 	 * Getters and Setters
 	 */
-	public long getcId() {
-		return cId;
+	public long getcID() {
+		return cID;
 	}
-	public void setcId(long cId) {
-		this.cId = cId;
+	public void setcID(long cID) {
+		this.cID = cID;
 	}
-	public long getbId() {
-		return bId;
+	public long getbID() {
+		return bID;
 	}
-	public void setbId(long bId) {
-		this.bId = bId;
+	public void setbID(long bID) {
+		this.bID = bID;
 	}
 	public String getContents() {
 		return contents;
@@ -48,25 +46,17 @@ public class Comment {
 	public void setContents(String contents) {
 		this.contents = contents;
 	}
-	public User getWriter() {
+	public long getWriter() {
 		return writer;
 	}
-	public void setWriter(User writer) {
+	public void setWriter(long writer) {
 		this.writer = writer;
 	}
-	public Date getCreatedTime() {
-		return createdTime;
+	public Date getDate() {
+		return date;
 	}
-	public void setCreatedTime(Date createdTime) {
-		this.createdTime = createdTime;
+	public void setDate(Date date) {
+		this.date = date;
 	}
-	public Date getModifiedTime() {
-		return modifiedTime;
-	}
-	public void setModifiedTime(Date modifiedTime) {
-		this.modifiedTime = modifiedTime;
-	}
-	
-	
-	
+			
 }

@@ -38,7 +38,7 @@ public class Application {
 				.title("BestPurchasing main API")
 				.description("Test version API")
 				.termsOfServiceUrl("TBD")
-				.contact("TBD")
+				.contact("Edward Yun(nedinsuyun@gmail.com)")
 				.license("Apache License Version 2.0")
 				.licenseUrl("TBD")
 				.version("2.0")
