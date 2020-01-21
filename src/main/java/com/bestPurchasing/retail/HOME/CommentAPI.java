@@ -4,7 +4,10 @@ import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.bestPurchasing.retail.DAO.CommentDao;
@@ -14,6 +17,7 @@ import com.bestPurchasing.retail.VO.Product;
 import io.swagger.annotations.ApiResponse;
 import io.swagger.annotations.ApiResponses;
 
+@CrossOrigin(origins = "http://localhost:4200")
 @RestController
 public class CommentAPI {
 
@@ -26,7 +30,7 @@ public class CommentAPI {
     @ApiResponse(code = 403, message = "Forbidden"),
     @ApiResponse(code = 404, message = "Not Found"),
     @ApiResponse(code = 500, message = "Failure")})
-	@GetMapping("/getAllCommentByBID")
+	@RequestMapping(value = "/getAllCommentByBID", method = RequestMethod.GET)
 	public List<Comment> getAllCommentByBID(long bID) {
 		List<Comment> comments = commentDao.getAllCommentByBID(bID);
 		return comments;
@@ -38,7 +42,7 @@ public class CommentAPI {
     @ApiResponse(code = 403, message = "Forbidden"),
     @ApiResponse(code = 404, message = "Not Found"),
     @ApiResponse(code = 500, message = "Failure")})
-	@GetMapping("/createComment")
+	@RequestMapping(value = "/createComment", method = RequestMethod.POST)
 	public void createComment(long bID, String contents, long writer, Date date) {
 		commentDao.createComment(bID, contents, writer, date);
 	}
@@ -49,7 +53,7 @@ public class CommentAPI {
     @ApiResponse(code = 403, message = "Forbidden"),
     @ApiResponse(code = 404, message = "Not Found"),
     @ApiResponse(code = 500, message = "Failure")})
-	@GetMapping("/updateComment")
+	@RequestMapping(value = "/updateComment", method = RequestMethod.PUT)
 	public void updateComment(long cID, String contents, Date date) {
 		commentDao.updateComment(cID, contents, date);
 	}
@@ -60,7 +64,7 @@ public class CommentAPI {
     @ApiResponse(code = 403, message = "Forbidden"),
     @ApiResponse(code = 404, message = "Not Found"),
     @ApiResponse(code = 500, message = "Failure")})
-	@GetMapping("/deleteComment")
+	@RequestMapping(value = "/deleteComment", method = RequestMethod.DELETE)
 	public void deleteComment(long cID) {
 		commentDao.deleteComment(cID);
 	}

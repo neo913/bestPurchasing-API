@@ -4,7 +4,10 @@ import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.bestPurchasing.retail.DAO.BoardDao;
@@ -14,6 +17,7 @@ import com.bestPurchasing.retail.VO.Product;
 import io.swagger.annotations.ApiResponse;
 import io.swagger.annotations.ApiResponses;
 
+@CrossOrigin(origins = "http://localhost:4200")
 @RestController
 public class BoardAPI {
 
@@ -26,7 +30,7 @@ public class BoardAPI {
     @ApiResponse(code = 403, message = "Forbidden"),
     @ApiResponse(code = 404, message = "Not Found"),
     @ApiResponse(code = 500, message = "Failure")})
-	@GetMapping("/getAllBoard")
+	@RequestMapping(value = "/getAllBoard", method = RequestMethod.GET)
 	public List<Board> getAllBoard() {
 		List<Board> boards = boardDao.getAllBoard();
 		return boards;
@@ -38,7 +42,7 @@ public class BoardAPI {
     @ApiResponse(code = 403, message = "Forbidden"),
     @ApiResponse(code = 404, message = "Not Found"),
     @ApiResponse(code = 500, message = "Failure")})
-	@GetMapping("/getBoard")
+	@RequestMapping(value = "/getBoard", method = RequestMethod.GET)
 	public Board getBoard(long bID) {
 		Board board = boardDao.getBoard(bID);
 		return board;
@@ -50,7 +54,7 @@ public class BoardAPI {
     @ApiResponse(code = 403, message = "Forbidden"),
     @ApiResponse(code = 404, message = "Not Found"),
     @ApiResponse(code = 500, message = "Failure")})
-	@GetMapping("/createBoard")
+	@RequestMapping(value = "/createBoard", method = RequestMethod.POST)
 	public void createBoard(String title, long writer, String contents, String comments) {
 		boardDao.createBoard(title, writer, contents, comments);
 	}
@@ -61,7 +65,7 @@ public class BoardAPI {
     @ApiResponse(code = 403, message = "Forbidden"),
     @ApiResponse(code = 404, message = "Not Found"),
     @ApiResponse(code = 500, message = "Failure")})
-	@GetMapping("/updateBoard")
+	@RequestMapping(value = "/updateBoard", method = RequestMethod.PUT)
 	public void updateBoard(long bID, String title, long writer, String contents, String comments, Date date) {
 		boardDao.updateBoard(bID, title, writer, contents, comments, date);
 	}
@@ -72,7 +76,7 @@ public class BoardAPI {
     @ApiResponse(code = 403, message = "Forbidden"),
     @ApiResponse(code = 404, message = "Not Found"),
     @ApiResponse(code = 500, message = "Failure")})
-	@GetMapping("/deleteBoard")
+	@RequestMapping(value = "/deleteBoard", method = RequestMethod.DELETE)
 	public void deletBoard(long bID) {
 		boardDao.deleteBoard(bID);
 	}
